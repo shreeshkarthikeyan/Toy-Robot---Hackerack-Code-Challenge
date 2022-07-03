@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=DirectionSetup
+comment0.text=\r\n\ Description\r\n\ \=\=\=\=\=\=\=\=\=\=\=\r\n\ DirectionSetup\ class\ will\ help\ to\ add\ the\ possible\ direction\ for\ the\ toy\ robot\r\n\ to\ move\ and\ also\ helps\ to\ track\ the\ previous\ Direction\ and\ the\ next\ Direction\r\n\ \r\n\ Concepts\ involved\r\n\ \=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\=\r\n\ Doubly\ Circular\ LinkedList\ -\ Add,\ Search\r\n\r\n\ @author\ -\ Shreesh\ Karthikeyan\r\n\ @version\ -\ 03/07/2022\r\n
+comment1.params=
+comment1.target=DirectionSetup()
+comment1.text=\r\n\ Default\ constructor\r\n\ \r\n
+comment2.params=directions
+comment2.target=void\ addDirection(java.lang.String[])
+comment2.text=\r\n\ Adds\ the\ direction(NORTH,\ EAST,\ SOUTH,\ WEST)\r\n\ \r\n
+comment3.params=searchDirection\ turnDirection
+comment3.target=java.lang.String\ turnDirection(java.lang.String,\ java.lang.String)
+comment3.text=\r\n\ Searches\ the\ direction\ of\ the\ toy\ robot\ and\r\n\ helps\ to\ track\ the\ LEFT\ and\ RIGHT\ side\ of\ the\ robot\ facing\ direction\r\n\ \r\n
+numComments=4
