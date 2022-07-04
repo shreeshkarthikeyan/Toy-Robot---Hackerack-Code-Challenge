@@ -10,4 +10,4 @@ AUTHORS: Shreesh Karthikeyan
 USER INSTRUCTION
 1. Install jdk.
 2. Import and open the project.
-3. Run the project.
+3. Run the ToyRobotApplication java file.
