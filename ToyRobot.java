@@ -65,55 +65,61 @@ public class ToyRobot
     public void moveCommand()
     {
         try {
-            switch(robotFaceDirection){
-                case "north":
-                {
-                    if(validationOnBoundaryCheck("yAxis", tableDimension)){
-                        toyRobotTable[tableDimension - 1 - yAxis][xAxis] = "-";
-                        yAxis += 1;
-                        toyRobotTable[tableDimension - 1 - yAxis][xAxis] = "X";
+            if(robotFaceDirection.length() != 0)
+            {
+                switch(robotFaceDirection){
+                    case "north":
+                    {
+                        if(validationOnBoundaryCheck("yAxis", tableDimension  - 1)){
+                            toyRobotTable[tableDimension - 1 - yAxis][xAxis] = "-";
+                            yAxis += 1;
+                            toyRobotTable[tableDimension - 1 - yAxis][xAxis] = "X";
+                        }
+                        else {
+                            System.out.println("Robot about to fall from the table");
+                        }
+                        break;
                     }
-                    else {
-                        System.out.println("Robot about to fall from the table");
+                    case "south":
+                    {
+                        if(validationOnBoundaryCheck("yAxis", 0)){
+                            toyRobotTable[tableDimension - 1 - yAxis][xAxis] = "-";
+                            yAxis -= 1;
+                            toyRobotTable[tableDimension - 1 - yAxis][xAxis] = "X";
+                        }
+                        else {
+                            System.out.println("Robot about to fall from the table");
+                        }
+                        break;
                     }
-                    break;
+                    case "east" :
+                    {
+                        if(validationOnBoundaryCheck("xAxis", tableDimension - 1)){
+                            toyRobotTable[tableDimension - 1 - yAxis][xAxis] = "-";
+                            xAxis += 1;
+                            toyRobotTable[tableDimension - 1 - yAxis][xAxis] = "X";
+                        }
+                        else {
+                            System.out.println("Robot about to fall from the table");
+                        }
+                        break;
+                    }
+                    case "west" :
+                    {
+                        if(validationOnBoundaryCheck("xAxis", 0)){
+                            toyRobotTable[tableDimension - 1 - yAxis][xAxis] = "-";
+                            xAxis -= 1;
+                            toyRobotTable[tableDimension - 1 - yAxis][xAxis] = "X";
+                        }
+                        else {
+                            System.out.println("Robot about to fall from the table");
+                        }
+                        break;
+                    }
                 }
-                case "south":
-                {
-                    if(validationOnBoundaryCheck("yAxis", 0)){
-                        toyRobotTable[tableDimension - 1 - yAxis][xAxis] = "-";
-                        yAxis -= 1;
-                        toyRobotTable[tableDimension - 1 - yAxis][xAxis] = "X";
-                    }
-                    else {
-                        System.out.println("Robot about to fall from the table");
-                    }
-                    break;
-                }
-                case "east" :
-                {
-                    if(validationOnBoundaryCheck("xAxis", tableDimension)){
-                        toyRobotTable[tableDimension - 1 - yAxis][xAxis] = "-";
-                        xAxis += 1;
-                        toyRobotTable[tableDimension - 1 - yAxis][xAxis] = "X";
-                    }
-                    else {
-                        System.out.println("Robot about to fall from the table");
-                    }
-                    break;
-                }
-                case "west" :
-                {
-                    if(validationOnBoundaryCheck("xAxis", 0)){
-                        toyRobotTable[tableDimension - 1 - yAxis][xAxis] = "-";
-                        xAxis -= 1;
-                        toyRobotTable[tableDimension - 1 - yAxis][xAxis] = "X";
-                    }
-                    else {
-                        System.out.println("Robot about to fall from the table");
-                    }
-                    break;
-                }
+            }
+            else {
+                System.out.println("Please place the Robot");
             }
         }
         catch(NullPointerException ex){
@@ -150,9 +156,14 @@ public class ToyRobot
      * @return - String - Updates the robot facing direction
      */
     public String turnCommand(String turnCommand) {
-        
-        robotFaceDirection = directionSetup.turnDirection(robotFaceDirection, turnCommand);
-        return robotFaceDirection;
+        if(robotFaceDirection.length() != 0){
+            robotFaceDirection = directionSetup.turnDirection(robotFaceDirection, turnCommand);
+            return robotFaceDirection;
+        }
+        else {
+            System.out.println("Please place the Robot");
+            return "Please place the Robot";
+        }
     }
     
     /**
@@ -161,17 +172,22 @@ public class ToyRobot
      * @return - String - Updates the user about the toy robot's X-Axis, Y-Axis and its facing direction
      */
     public String reportCommand(){
-        
-        String result = xAxis +", " + yAxis +", " + robotFaceDirection.toUpperCase();
-        System.out.println(result);
-        System.out.println();
-        System.out.println("Table Representation");
-        for (int i = 0; i < toyRobotTable.length; i++) {
-                for (int j = 0; j < toyRobotTable[i].length; j++) {
-                   System.out.print(toyRobotTable[i][j]+ " ");
-                }
-                System.out.println();
+        if(robotFaceDirection.length() != 0) {
+            String result = xAxis +", " + yAxis +", " + robotFaceDirection.toUpperCase();
+            System.out.println(result);
+            System.out.println();
+            System.out.println("Table Representation");
+            for (int i = 0; i < toyRobotTable.length; i++) {
+                    for (int j = 0; j < toyRobotTable[i].length; j++) {
+                       System.out.print(toyRobotTable[i][j]+ " ");
+                    }
+                    System.out.println();
+            }
+            return result;
         }
-        return result;
+        else {
+            System.out.println("Please place the Robot");
+            return "Please place the Robot";
+        }
     }
 }
