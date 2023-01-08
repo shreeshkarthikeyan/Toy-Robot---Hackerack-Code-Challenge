@@ -8,6 +8,4 @@ PROJECT TITLE: Toy Robot Application
 VERSION or DATE: 03/07/2022
 AUTHORS: Shreesh Karthikeyan
 USER INSTRUCTION
-1. Install jdk.
-2. Import and open the project.
-3. Run the ToyRobotApplication java file.
+1. Run the ToyRobotApplication java file.
